@@ -1,0 +1,8 @@
+SELECT name, CONCAT(ROUND(population/(SELECT population FROM world WHERE name = 'Germany'), 0), %)
+FROM world
+WHERE continent = 'Europe'
+
+| employee_id | name  | reports_to | age | employee_id | name  | reports_to | age |
+| ----------- | ----- | ---------- | --- | ----------- | ----- | ---------- | --- |
+| 9           | Hercy | null       | 43  | 6           | Alice | 9          | 41  |
+| 9           | Hercy | null       | 43  | 4           | Bob   | 9          | 36  |
