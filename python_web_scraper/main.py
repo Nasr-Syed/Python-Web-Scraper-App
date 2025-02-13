@@ -1,14 +1,10 @@
 '''Welcome to my Python Web Scraper
-in this project I will test web scraping from Indeed job searches, to gain insights and gather job data for faster, effective understanding of the job market.
+in this practice project, I will loop through multiple pages of a movie website. practicing looping a website to scrape data from multiple pages.
 '''
 # built by Nasr Syed
 
 '''
-url structure:
-"q=" describes the "what" field on the page.
-salary is parsed by %24, then number, then comma broken by %20. ie: %2450%2C000 = $50,000
-"&l=" is the start of the string for city. "+" is used to split multiple word cities.
-"&start=" is the positional placeholder for result.
+
 '''
 import requests
 import bs4
@@ -16,11 +12,22 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
-URL = "https://www.indeed.com/jobs?q=data+scientist+%2420%2C000&l=New+York&start=10"
-#conducting a request of the stated URL above:
-page = requests.get(URL)
-#specifying a desired format of “page” using the html parser - this allows python to read the various components of the page, rather than treating it as one long string.
-soup = BeautifulSoup(page.text, "html.parser")
-#printing soup in a more structured tree format that makes for easier reading
-print(soup.prettify())
+# importing data from HTML using results and BeautifulSoup
+url = 'https://subslikescript.com/movie/Titanic-120338'
+result = requests.get(url)
+content = result.text
+soup = BeautifulSoup(content, 'lxml')
+soup.prettify()
 
+#parse through website HTML blocks to find main block of code describing Movie title, description, transcript.
+
+main_box = soup.find('article', class_="main-article")
+title = main_box.find('h1').get_text(strip=True )
+description = main_box.find('p', class_="plot").get_text(strip=True)
+transcript = main_box.find('div', class_="full-script")
+
+print(title, "\n", description, "\n", transcript)
+
+# exporting into .txt file
+with open(f'{title}.txt', 'w') as file:
+    file.write(title, description, transcript)
