@@ -22,8 +22,7 @@ website = f'{root}/movies'
 result = requests.get(website)
 content = result.text
 soup = BeautifulSoup(content, 'lxml')
-print(soup.prettify())
-print('end of soup.')
+
 
 # parse through website HTML blocks to find main block of code describing Movie title, description, transcript.
 main_box = soup.find('article', class_="main-article")
@@ -34,7 +33,13 @@ links = main_box.find_all('a', href=True)
 list = []
 for link in links:
     list.append(link['href'])
-# parsing through each movie link
+# parsing through each movie link with BeautifulSoup
+
+for link in list:
+    result = requests.get(f"{root}/{link}")
+    content = result.text
+    soup = BeautifulSoup(content, 'lxml')
+print(soup)
 
 
 '''
