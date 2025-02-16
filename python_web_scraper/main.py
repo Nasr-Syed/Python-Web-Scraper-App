@@ -1,7 +1,12 @@
-'''Welcome to my Python Web Scraper - Nasr Syed
+"""
+Welcome to my Python Web Scraper - Nasr Syed
 
-for my own practice and curiosity, I will loop through multiple pages of a movie website. practicing looping a website to scrape data from multiple pages. I will append them to a text file to create a local database.
-'''
+for my own practice and curiosity,
+I will loop through a page of a movie website.
+This code appends scraped data to a .txt file.
+
+main.py scrapes a single page, while web_scraper_site_wide.py parses through the entire website and scrapes multiple pages of data.
+"""
 
 import os
 import requests
