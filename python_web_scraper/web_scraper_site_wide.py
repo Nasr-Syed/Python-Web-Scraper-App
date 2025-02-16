@@ -1,13 +1,11 @@
 """
 Welcome to my Python Web Scraper - Nasr Syed
-
 Ror my own practice and curiosity,
 I will loop through multiple pages of a movie website.
 practicing looping a website to scrape data from multiple pages.
 I will append them to a text file to create a local database.
 
 """
-
 import os
 import requests
 import bs4
@@ -16,13 +14,11 @@ import pandas as pd
 import time
 
 # importing data from HTML using requests and BeautifulSoup
-
 root = 'https://subslikescript.com'
 website = f'{root}/movies'
 result = requests.get(website)
 content = result.text
 soup = BeautifulSoup(content, 'lxml')
-
 
 # parse through website HTML blocks to find main block of code describing Movie title, description, transcript.
 main_box = soup.find('article', class_="main-article")
@@ -40,7 +36,6 @@ for link in list:
     content = result.text
     soup = BeautifulSoup(content, 'lxml')
 print(soup)
-
 
 '''
 # writing to output file
