@@ -12,32 +12,39 @@ import time
 
 # importing data from HTML using requests and BeautifulSoup
 
-url = "https://subslikescript.com/movie/Titanic-120338"
-result = requests.get(url)
+root = 'https://subslikescript.com'
+website = f'{root}/movies'
+result = requests.get(website)
 content = result.text
 soup = BeautifulSoup(content, 'lxml')
-soup.prettify()
+print(soup.prettify())
+print('end of soup.')
 
 # parse through website HTML blocks to find main block of code describing Movie title, description, transcript.
 main_box = soup.find('article', class_="main-article")
 title = main_box.find('h1').get_text(strip=True)
-description = main_box.find('p', class_="plot").get_text(strip=True)
-transcript = main_box.find('div', class_="full-script").get_text(strip=True)
+links = main_box.find_all('a', href=True)
 
-print(transcript)
+# obtaining list of all movie links
+list = []
+for link in links:
+    list.append(link['href'])
+# parsing through each movie link
 
-base_path = r"C:\Users\nasrs\Documents\Python-Projects\python_web_scraper\movies_database"
+
+'''
+# writing to output file
+
+#base_path = r"C:\\Users\nasrs\Documents\Python-Projects\python_web_scraper\movies_database"
 file_path = base_path + "/" + title + ".txt"
-
-# cleanup from past runs
 if os.path.exists(file_path):
     os.remove(file_path)
     print(f"File '{file_path}' deleted successfully.")
 else:
     print(f"File '{file_path}' not found. Continuing data appendage.")
-
 # exporting into .txt file
 with open(f'{file_path}', 'a') as file:
     file.write(description)
     file.write(" ")
     file.write(transcript)
+'''
