@@ -41,7 +41,7 @@ for link in links:
     list.append(link['href'])
 print(list)
 
-# parsing through each movie link with BeautifulSoup
+# parsing through each movie link with BeautifulSoup and scraping data
 for link in list:
     print(f"{root}{link}")
     result = requests.get(f"{root}{link}")

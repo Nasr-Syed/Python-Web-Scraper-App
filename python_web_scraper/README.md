@@ -69,7 +69,26 @@ printing list of retrieved parsed links on page.
 
 Process finished with exit code 0
 ```
-### Parsing multiple pages and scraping data from bs4:
+### Parsing multiple page links and scraping data for each link via bs4:
+```
+# parsing through each movie link with BeautifulSoup and scraping data
+for link in list:
+    print(f"{root}{link}")
+    result = requests.get(f"{root}{link}")
+    content = result.text
+    soup = BeautifulSoup(content, 'lxml')
+    print(f"created soup for {link}")
+    # parsing through each link and scraping data.
+    main_box = soup.find('article', class_="main-article")
+    title = main_box.find('h1').get_text(strip=True)
+    try:
+        description = main_box.find('p', class_="plot").get_text(strip=True)
+    except AttributeError:
+        continue
+    transcript = main_box.find('div', class_="full-script").get_text(strip=True)
+    print(f"Parsed {link}")
+```
+### Output
 ```
 C:\Users\nasrs\Documents\Python-Projects\python_web_scraper\venv\Scripts\python.exe C:/Users/nasrs/Documents/Python-Projects/python_web_scraper/web_scraper_site_wide.py
 List of Movie Names
