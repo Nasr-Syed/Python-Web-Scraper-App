@@ -347,3 +347,8 @@ Successfully wrote file How to Fall in Love by Christmas (2023) - full transcrip
 
 Process finished with exit code 0
 ```
+
+## Resulting Data 
+As seen below, data .txt files were uploaded to the target path, iteratively.
+
+![alt text](https://github.com/Nasr-Syed/Python-Web-Scraper-App/blob/master/python_web_scraper/images/Screenshot%202025-02-16%20235725.png?raw=true)
