@@ -57,10 +57,22 @@ for link in list:
         continue
     transcript = main_box.find('div', class_="full-script").get_text(strip=True)
     print(f"Parsed {link}")
+
+    # Writing scraped data to an output location
+    base_path = r"C:\Users\nasrs\Documents\Python-Projects\python_web_scraper\movies_database"
+    file_path = base_path + "/" + title + ".txt"
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        print(f"File '{file_path}' deleted successfully.")
+    else:
+        print(f"File '{file_path}' not found. Continuing data appendage.")
+    with open(f'{file_path}', 'w', encoding="utf-8") as file:
+        file.write(transcript)
+        print(f"Successfully wrote file {title}")
 '''
 # writing to output file
 
-#base_path = r"C:\\Users\nasrs\Documents\Python-Projects\python_web_scraper\movies_database"
+base_path = r"C:\\Users\nasrs\Documents\Python-Projects\python_web_scraper\movies_database"
 file_path = base_path + "/" + title + ".txt"
 if os.path.exists(file_path):
     os.remove(file_path)
