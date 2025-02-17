@@ -69,7 +69,8 @@ printing list of retrieved parsed links on page.
 
 Process finished with exit code 0
 ```
-### Parsing multiple page links and scraping data for each link via bs4:
+### Parsing multiple page links:
+The following code snippet parses through each link and scrapes HTML data via BeautifulSoup.
 ```
 # parsing through each movie link with BeautifulSoup and scraping data
 for link in list:
