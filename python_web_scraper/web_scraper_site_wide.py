@@ -7,6 +7,8 @@ I will append them to a text file to create a local database.
 
 """
 import os
+from logging import exception
+
 import requests
 import bs4
 from bs4 import BeautifulSoup
@@ -22,23 +24,39 @@ soup = BeautifulSoup(content, 'lxml')
 
 # parse through website HTML blocks to find main block of code describing Movie title, description, transcript.
 main_box = soup.find('article', class_="main-article")
-title = main_box.find('h1').get_text(strip=True)
+title = main_box.find_all('a', href=True)
 links = main_box.find_all('a', href=True)
 
-# obtaining list of all movie links
+
+
+# finding names of all movies through parsing and stripping, and list of movie links.
+title_list = []
+print("List of Movie Names")
+for name in title:
+    title_list.append(name.text.strip())
+print(title_list)
+print("List of movie links")
 list = []
 for link in links:
     list.append(link['href'])
-# parsing through each movie link with BeautifulSoup
+print(list)
 
+# parsing through each movie link with BeautifulSoup
 for link in list:
-    print("retrieves list of retrieved parsed links on page.")
-    print(f"{root}/{link}")
-    result = requests.get(f"{root}/{link}")
+    print(f"{root}{link}")
+    result = requests.get(f"{root}{link}")
     content = result.text
     soup = BeautifulSoup(content, 'lxml')
-
-
+    print(f"created soup for {link}")
+    # parsing through each link and scraping data.
+    main_box = soup.find('article', class_="main-article")
+    title = main_box.find('h1').get_text(strip=True)
+    try:
+        description = main_box.find('p', class_="plot").get_text(strip=True)
+    except AttributeError:
+        continue
+    transcript = main_box.find('div', class_="full-script").get_text(strip=True)
+    print(f"Parsed {link}")
 '''
 # writing to output file
 

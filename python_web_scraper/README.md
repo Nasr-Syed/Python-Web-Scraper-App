@@ -45,25 +45,25 @@ for link in list:
     soup = BeautifulSoup(content, 'lxml')
 ```
 ### Output
->parsed links output 
+parsed links output 
 
->C:\Users\nasrs\Documents\Python-Projects\python_web_scraper\venv\Scripts\python.exe C:/Users/nasrs/Documents/Python-Projects/python_web_scraper/web_scraper_site_wide.py
->printing list of retrieved parsed links on page.
->
->https://subslikescript.com//movie/Kalevala_-_uusi_aika-2192882
->printing list of retrieved parsed links on page.
->https://subslikescript.com//movie/Face_Off_The_Walking_Guests-10187348
->printing list of retrieved parsed links on page.
->https://subslikescript.com//movie/Revenge_of_the_First_Wives-16244948
->printing list of retrieved parsed links on page.
->https://subslikescript.com//movie/The_London_Nobody_Knows-61914
->printing list of retrieved parsed links on page.
->https://subslikescript.com//movie/Building_Ireland-14350334
->printing list of retrieved parsed links on page.
->
->(prints about 2000 links which are cut short in README for brevity)
->...
->...
->...
->
->Process finished with exit code 0
+C:\Users\nasrs\Documents\Python-Projects\python_web_scraper\venv\Scripts\python.exe C:/Users/nasrs/Documents/Python-Projects/python_web_scraper/web_scraper_site_wide.py
+printing list of retrieved parsed links on page.
+
+https://subslikescript.com//movie/Kalevala_-_uusi_aika-2192882
+printing list of retrieved parsed links on page.
+https://subslikescript.com//movie/Face_Off_The_Walking_Guests-10187348
+printing list of retrieved parsed links on page.
+https://subslikescript.com//movie/Revenge_of_the_First_Wives-16244948
+printing list of retrieved parsed links on page.
+https://subslikescript.com//movie/The_London_Nobody_Knows-61914
+printing list of retrieved parsed links on page.
+https://subslikescript.com//movie/Building_Ireland-14350334
+printing list of retrieved parsed links on page.
+
+(prints about 2000 links which are cut short in README for brevity)
+...
+...
+...
+
+Process finished with exit code 0
