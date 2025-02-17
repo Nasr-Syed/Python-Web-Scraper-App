@@ -32,7 +32,7 @@ for link in links:
 # parsing through each movie link with BeautifulSoup
 
 for link in list:
-    print("printing list of retrieved parsed links on page.")
+    print("retrieves list of retrieved parsed links on page.")
     print(f"{root}/{link}")
     result = requests.get(f"{root}/{link}")
     content = result.text
