@@ -1,7 +1,7 @@
 """
 Welcome to my Python Web Scraper - Nasr Syed
 
-Ror my own practice and curiosity,
+For my own practice and curiosity,
 I will loop through a page of a movie website.
 This code appends scraped data to a .txt file.
 single_page_test.py scrapes a single page, while web_scraper_site_wide.py parses through the entire website.
