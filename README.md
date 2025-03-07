@@ -8,7 +8,7 @@ In this project, I will browse through a movie website that holds transcripts fo
 - The files are then written to a .txt file for data storage.
 
   
-Note: A variant of this project, updated with abstraction and recursion that I worked on can be [found here](https://github.com/Nasr-Syed/Recursive_Web_Scraper).
+Note: A variant of this project that I worked on, updated with abstraction and recursion, can be [found here](https://github.com/Nasr-Syed/Recursive_Web_Scraper).
 
 ### The Python web scraper uses BeautifulSoup to retrieve HTML data from a website, and parse through it's content.
 ```
