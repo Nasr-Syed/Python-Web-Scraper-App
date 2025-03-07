@@ -6,6 +6,8 @@ In this project, I will browse through a movie website that holds transcripts fo
 - The first one parses through a single page on the website. 
 - The second site wide version of the code parses through each link, and page, thus successfully scraping an entire site containing thousands of movie links. 
 - The files are then written to a .txt file for data storage.
+
+  
 Note: A variant of this project, updated with abstraction and recursion that I worked on can be [found here](https://github.com/Nasr-Syed/Recursive_Web_Scraper).
 
 ### The Python web scraper uses BeautifulSoup to retrieve HTML data from a website, and parse through it's content.
